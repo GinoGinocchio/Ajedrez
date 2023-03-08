@@ -149,61 +149,7 @@ public class ChessGameBoard extends JPanel{
         }
         repaint();
     }
-    /**
-     * (Re)initializes this ChessGameBoard to its default layout with all 32
-     * pieces added.
-     */
-    /*public void initializeBoard(){
-        resetBoard( false );
-        for ( int i = 0; i < chessCells.length; i++ ){
-            for ( int j = 0; j < chessCells[0].length; j++ ){
-                ChessGamePiece pieceToAdd;
-                if ( i == 1 ) // black pawns
-                {
-                    pieceToAdd = new Pawn( this, i, j, ChessGamePiece.BLACK );
-                }
-                else if ( i == 6 ) // white pawns
-                {
-                    pieceToAdd = new Pawn( this, i, j, ChessGamePiece.WHITE );
-                }
-                else if ( i == 0 || i == 7 ) // main rows
-                {
-                    int colNum =
-                        i == 0 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
-                    if ( j == 0 || j == 7 ){
-                        pieceToAdd = new Rook( this, i, j, colNum );
-                    }
-                    else if ( j == 1 || j == 6 ){
-                        pieceToAdd = new Knight( this, i, j, colNum );
-                    }
-                    else if ( j == 2 || j == 5 ){
-                        pieceToAdd = new Bishop( this, i, j, colNum );
-                    }
-                    else if ( j == 3 ){
-                        pieceToAdd = new King( this, i, j, colNum );
-                    }
-                    else
-                    {
-                        pieceToAdd = new Queen( this, i, j, colNum );
-                    }
-                }
-                else
-                {
-                    pieceToAdd = null;
-                }
-                chessCells[i][j] = new BoardSquare( i, j, pieceToAdd );
-                if ( ( i + j ) % 2 == 0 ){
-                    chessCells[i][j].setBackground( Color.WHITE );
-                }
-                else
-                {
-                    chessCells[i][j].setBackground( Color.BLACK );
-                }
-                chessCells[i][j].addMouseListener( listener );
-                this.add( chessCells[i][j] );
-            }
-        }
-    }*/
+    
     public void initializeBoard(){
         resetBoard(false);
         for (int i = 0; i < chessCells.length; i++){
