@@ -16,7 +16,8 @@ public class ChessMain{
     public void startGame() {
         JFrame frame = new JFrame( "YetAnotherChessGame 1.0" );
         frame.setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
-        frame.getContentPane().add( new ChessPanel() );
+        ChessPanel panel = ChessPanel.createChessPanel();
+        frame.getContentPane().add( panel );
         frame.pack();
         frame.setVisible( true );
     }
