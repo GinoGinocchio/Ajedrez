@@ -148,8 +148,6 @@ public class ChessGameBoard extends JPanel{
             }
         }
         repaint();
-        //revalidate();
-        // only the combination of these two calls work...*shrug*
     }
     /**
      * (Re)initializes this ChessGameBoard to its default layout with all 32
