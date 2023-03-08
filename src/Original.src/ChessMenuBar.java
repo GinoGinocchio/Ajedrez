@@ -95,8 +95,6 @@ public class ChessMenuBar
         JOptionPane.showMessageDialog(this.getParent(), "Thanks for leaving, quitter! >:(");
 
         Component frame = this;
-        while ((frame = frame.getParent()) != null && !(frame instanceof JFrame)) {}
-
         if (frame instanceof JFrame jFrame) {
             jFrame.setVisible(false);
             jFrame.dispose();
