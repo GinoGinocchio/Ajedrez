@@ -153,7 +153,7 @@ public class ChessGameBoard extends JPanel{
      * (Re)initializes this ChessGameBoard to its default layout with all 32
      * pieces added.
      */
-    public void initializeBoard(){
+    /*public void initializeBoard(){
         resetBoard( false );
         for ( int i = 0; i < chessCells.length; i++ ){
             for ( int j = 0; j < chessCells[0].length; j++ ){
@@ -203,7 +203,40 @@ public class ChessGameBoard extends JPanel{
                 this.add( chessCells[i][j] );
             }
         }
+    }*/
+    public void initializeBoard(){
+        resetBoard(false);
+        for (int i = 0; i < chessCells.length; i++){
+            for (int j = 0; j < chessCells[0].length; j++){
+                ChessGamePiece pieceToAdd = createPiece(i, j);
+                chessCells[i][j] = new BoardSquare(i, j, pieceToAdd);
+                chessCells[i][j].setBackground((i + j) % 2 == 0 ? Color.WHITE : Color.BLACK);
+                chessCells[i][j].addMouseListener(listener);
+                this.add(chessCells[i][j]);
+            }
+        }
     }
+    
+    private ChessGamePiece createPiece(int i, int j) {
+    ChessGamePiece pieceToAdd;
+        switch (i) {
+            case 1, 6 -> pieceToAdd = new Pawn(this, i, j, i == 1 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE);
+            case 0, 7 -> {
+                int color = i == 0 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
+                pieceToAdd = switch (j) {
+            case 0, 7 -> new Rook(this, i, j, color);
+            case 1, 6 -> new Knight(this, i, j, color);
+            case 2, 5 -> new Bishop(this, i, j, color);
+            case 3 -> new King(this, i, j, color);
+            default -> new Queen(this, i, j, color);
+        };
+            }
+            default -> pieceToAdd = null;
+        }
+    return pieceToAdd;
+}
+    
+    
     // ----------------------------------------------------------
     /**
      * Clears the colors on the board.
